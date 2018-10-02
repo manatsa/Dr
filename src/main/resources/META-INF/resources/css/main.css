@@ -1,0 +1,21 @@
+.padded{
+    padding-top: 30px;
+}
+
+.nav-item-heading{
+    font-weight: bold;
+    text-decoration: underline;
+    color: #7e3f9d;
+}
+
+.font-big{
+    font-size: xx-large;
+}
+.round-padd{
+    padding: 30px 10px;
+}
+
+.with-blink{
+    text-decoration: blink;
+}
+
