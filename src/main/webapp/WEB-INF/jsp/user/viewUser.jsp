@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                         <td>USER ROLE :</td>
-                        <td>${user.role.role}</td>
+                        <td>${user.role}</td>
                     </tr>
 
                 </tbody>

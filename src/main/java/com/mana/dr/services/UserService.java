@@ -36,7 +36,7 @@ public class UserService implements  UserInterface {
         olduser.setFirstName(user.getFirstName());
         olduser.setLastName(user.getLastName());
         olduser.setPassword(user.getPassword());
-        olduser.setRoles(user.getRoles());
+        olduser.setRole(user.getRole());
         olduser.setUserName(user.getUserName());
 
         return userRepository.save(olduser);

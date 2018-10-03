@@ -55,7 +55,7 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="role">User Role :</label>
-                        <select class="form-control col-lg-8" name="role" multiple id="role" required="true">
+                        <select class="form-control col-lg-8" name="role" id="role" required="true">
                             <c:forEach items="${roles}" var="role">
                                 <option class="text-uppercase">${role.role}</option>
                             </c:forEach>

@@ -44,9 +44,7 @@ public class User {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(name = "user_roles", joinColumns = { @JoinColumn(name = "user_id") },inverseJoinColumns = { @JoinColumn(name = "role_id") })
-    Set<Roles> roles = new HashSet<>();
+    String role;
 
 
     public Long getId() {
@@ -113,11 +111,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Roles> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Roles> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

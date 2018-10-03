@@ -56,7 +56,7 @@
                     <h1 class="panel-title text-uppercase "><%=throwable%></h1>
                 </div>
                 <div class="panel-body">
-                    <span class="text-center text-justify"><%=error%></span>
+                    <span class="text-center text-justify"><%=error%>${exception}</span>
                 </div>
             </div>
         </div>

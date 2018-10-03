@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class UserController {
@@ -47,18 +45,13 @@ public class UserController {
             String lastName=request.getParameter("lastName");
             String userName=request.getParameter("userName");
             String password=request.getParameter("password");
-            String rolename=request.getParameter("role");
+            String roleName=request.getParameter("role");
             User user=new User();
             user.setUserName(userName);
             user.setPassword(passwordEncoder.encode(password));
             user.setLastName(lastName);
             user.setFirstName(firstName);
-            Roles role=new Roles();
-            role.setRole(rolename);
-
-            Set<Roles> roles=new HashSet<Roles>();
-            roles.add(role);
-            user.setRoles(roles);
+            user.setRole(roleName);
             user.setCreator("system");
             userService.saveUser(user);
         }catch (Exception e){
@@ -74,14 +67,14 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/login.html")
+    @RequestMapping(value = "/login")
     public String loginRequest()
     {
         return "user/login";
     }
 
 
-    @RequestMapping("/logout.html")
+    @RequestMapping("/logout")
     public String logout(Model model, HttpServletRequest request){
         HttpSession httpSession=request.getSession();
         httpSession.setAttribute("user",null);
@@ -124,9 +117,7 @@ public class UserController {
     public String editedUser(User user,HttpServletRequest request, Model model)
     {
             String userRole=request.getParameter("userRole");
-            Set<Roles> roles=new HashSet<>();
-            roles.add(roleService.getRoleByName(userRole));
-            user.setRoles(roles);
+            user.setRole(roleService.getRoleByName(userRole).getRole());
         try{
             userService.editUser(user,user.getId());
         }catch (Exception e){

@@ -28,8 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
-                .authoritiesByUsernameQuery("select user_name as username, role FROM user u join roles r on(u.role_id=r.id) where user_name=?")
-                .usersByUsernameQuery("select user_name as username,password as password,1 FROM user where user_name=?").passwordEncoder(passwordEncoder());
+                .authoritiesByUsernameQuery("select u.user_name as username, u.role as role FROM user u where user_name=?")
+                .usersByUsernameQuery("select user_name as username,password as password,1 FROM user  where user_name=?").passwordEncoder(passwordEncoder());
     }
 
     @Bean(name="passwordEncoder")
@@ -43,23 +43,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/user/new.html").authenticated()
-                .antMatchers("/error").permitAll()
-                .antMatchers("/login.html").permitAll()
-                .antMatchers("/user/").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-                .antMatchers("/").permitAll()
+                    .antMatchers("/error").permitAll()
+                    .antMatchers("/login").permitAll()
+                    .antMatchers("/").authenticated()
+                    .antMatchers("/user/**").access("hasRole('ROLE_SUPER') or hasRole('ROLE_USER')")
+
                 .and()
-                .formLogin()
-                .successForwardUrl("/").permitAll()
-                .failureForwardUrl("/login.html")
+                    .formLogin()
+                    .loginPage("/login").permitAll()
+                    .successForwardUrl("/").permitAll()
+                    .failureForwardUrl("/login")
                 .and()
                 .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .deleteCookies()
-                .logoutSuccessUrl("/login.html")
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .deleteCookies()
+                    .logoutSuccessUrl("/login")
                 .and()
-                .exceptionHandling().accessDeniedPage("/loginFailed");
+                .exceptionHandling()
+                    .accessDeniedPage("/errors/403")
+                    ;
 
     }
 }

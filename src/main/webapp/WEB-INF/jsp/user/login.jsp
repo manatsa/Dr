@@ -37,9 +37,9 @@
                     <label class="control-label col-md-3" for="passtext">Password</label>
                     <input type="password" class="form-control col-md-9" title="Your password" placeholder="Your password here" name="password" id="passtext"  required="true"/>
                 </fieldset>
-                <input type="hidden"
-                       name="${_csrf.parameterName}"
-                       value="${_csrf.token}"/>
+                <%--<input type="hidden"--%>
+                       <%--name="${_csrf.parameterName}"--%>
+                       <%--value="${_csrf.token}"/>--%>
                 <div class="row">
                     <div style="padding: 10px 50px; margin: 20px;">
                         <a  role="button" class="btn btn-warning pull-left" href="/">Cancel</a>

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
-    <title>Logine</title>
+    <title>Home</title>
     <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <%--<link rel="stylesheet" media="screen" href="/css/bootstrap.min.css">--%>
     <link rel="stylesheet" media="screen" href="/css/main.css">
@@ -43,7 +43,7 @@
                     <div class="row">
                         <div style="padding: 10px 50px; margin: 20px;">
                             <button type="button" class="btn btn-default" data-dismiss="modal"> No </button>
-                            <button type="submit" class="btn btn-primary pull-right"> Yes </button>
+                            <button type="submit" name="submit" class="btn btn-primary pull-right"> Yes </button>
                         </div>
 
                     </div>
@@ -62,7 +62,7 @@
             <h1>Hello world</h1>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="/login.html" > Login <span class="glyphicon glyphicon-log-in"></span></a>
+            <a class="btn btn-primary" href="/login" > Login <span class="glyphicon glyphicon-log-in"></span></a>
             <a class="btn btn-warning"  data-toggle="modal" data-target="#logoutModal"> Logout <span class="glyphicon glyphicon-log-out"></span> </a>
         </div>
     </div>
