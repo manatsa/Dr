@@ -30,7 +30,9 @@ public class MainController {
         for(User user1:users)
         {
 
+            if(user1.getUserName().trim().contentEquals(username.trim())){
                 user=user1;
+            }
 
         }
 

@@ -1,4 +1,4 @@
-package com.mana.dr.controllers.user;
+package com.mana.dr.controllers;
 
 import com.mana.dr.entities.User;
 import com.mana.dr.services.UserInterface;

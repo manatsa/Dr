@@ -2,11 +2,13 @@ package com.mana.dr.controllers.user;
 
 import com.mana.dr.entities.Roles;
 import com.mana.dr.entities.User;
+import com.mana.dr.services.RoleService;
 import com.mana.dr.services.UserInterface;
 import com.mana.dr.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +24,14 @@ public class UserController {
     @Autowired
     UserInterface userService;
 
+    @Autowired
+    RoleService roleService;
+
     @RequestMapping(value = "/user/new.html")
-    public String initCreate()
+    public String initCreate(Model model)
     {
+        List<Roles> roles=roleService.getAllRoles();
+        model.addAttribute("roles",roles);
         return "user/createUser";
     }
 
@@ -45,8 +52,8 @@ public class UserController {
             Roles role=new Roles();
             role.setRole(rolename);
             user.setRole(role);
-            user.setCreateDate(new Date());
-            user.setModifyDate(new Date());
+            //user.setCreateDate(new Date());
+            //user.setModifyDate(new Date());
             user.setCreator("system");
             userService.saveUser(user);
         }catch (Exception e){
@@ -62,7 +69,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/login.html")
     public String loginRequest()
     {
         return "user/login";
@@ -85,7 +92,42 @@ public class UserController {
     {
         List<User> users=userService.getAllUsers();
         model.addAttribute("users",users);
-        return "users/viewUsers";
+        return "user/viewUsers";
+    }
+
+    @RequestMapping({"/user/view/{id}"})
+    public String getUser(Model model, @PathVariable Long id)
+    {
+        User user=userService.getUserById(id);
+        model.addAttribute("user",user);
+        return "user/viewUser";
+    }
+
+    @RequestMapping({"/user/edit/{id}"})
+    public String editUser(Model model, @PathVariable Long id)
+    {
+        User user=userService.getUserById(id);
+        List<Roles> roles=roleService.getAllRoles();
+        model.addAttribute("roles",roles);
+        model.addAttribute("user",user);
+
+        return "user/editUser";
+    }
+
+
+    @RequestMapping(value = "/user/edit.html")
+    public String editedUser(User user,HttpServletRequest request, Model model)
+    {
+            String userRole=request.getParameter("userRole");
+            //user.setModifyDate(new Date());
+            user.setRole(roleService.getRoleByName(userRole));
+        try{
+            userService.editUser(user,user.getId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+System.err.println("edited!");
+        return "redirect:/user";
     }
 
 

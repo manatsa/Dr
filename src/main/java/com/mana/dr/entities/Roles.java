@@ -10,8 +10,6 @@ public class Roles {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-//    @OneToOne
-//    private User user;
 
     @NotNull
     private String role;

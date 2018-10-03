@@ -1,7 +1,8 @@
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -23,11 +24,14 @@
 <jsp:include page="../includes/header.jsp" />
 <section class="container padded">
 
-    <div class="panel panel-primary col-md-10 col-md-offset-1">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title text-uppercase ">All System users</h1>
         </div>
         <div class="panel-body">
+            <div class="row text-center pad-5-60">
+                <a class="btn btn-warning pull-right text-danger" href="/"><span class="glyphicon glyphicon-remove" /> </a>
+            </div>
            <table class="table table-responsive table-striped">
                <thead>
                     <th>USER ID</th>
@@ -38,8 +42,8 @@
                     <th>CREATE_DATE</th>
                     <th>MODIFY DATE</th>
                     <th>ROLE</th>
-                    <th>VIEW <span class="glyphicon glyphicon-play-circle"></span> </th>
-                    <th>EDIT <span class="glyphicon glyphicon-pencil"></span> </th>
+                    <th>VIEW  </th>
+                    <th>EDIT  </th>
                     <th>DELETE <span class="glyphicon glyphicon-remove-circle"></span> </th>
                </thead>
                <tbody>
@@ -50,11 +54,11 @@
                             <td>${user.lastName}</td>
                             <td>${user.userName}</td>
                             <td>${user.creator}</td>
-                            <td>${user.createDate}</td>
-                            <td>${user.modifyDate}</td>
+                            <td><fmt:formatDate value="${user.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
+                            <td><fmt:formatDate value="${user.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/></td>
                             <td>${user.role.role}</td>
-                            <td></td>
-                            <td></td>
+                            <td><a class="" href="/user/view/${user.id}" ><span class="glyphicon glyphicon-play-circle" /> </a> </td>
+                            <td><a class="" href="/user/edit/${user.id}" ><span class="glyphicon glyphicon-pencil" /> </a> </td>
                             <td></td>
                         </tr>
                     </c:forEach>

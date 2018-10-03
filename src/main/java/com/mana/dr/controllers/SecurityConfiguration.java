@@ -1,4 +1,4 @@
-package com.mana.dr.controllers.user;
+package com.mana.dr.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,25 +32,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 
-    @SuppressWarnings("deprecation")
-    @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/loginFailed").permitAll()
-                //.antMatchers("/user/new.html").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+                .antMatchers("/user/new.html").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
                 .and()
                 .authorizeRequests().antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").successForwardUrl("/").permitAll()
+                .loginPage("/login.html").successForwardUrl("/").permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/loginFailed");
-                //.and().authenticationProvider(new DRAuthentication());
+                .exceptionHandling().accessDeniedPage("/loginFailed")
+                .and().authenticationProvider(new DRAuthentication());
     }
 }

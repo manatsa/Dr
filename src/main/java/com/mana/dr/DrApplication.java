@@ -10,12 +10,14 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 
 import javax.sql.DataSource;
 
 @SpringBootApplication
+@EnableJpaAuditing
 public class DrApplication {
 
 	@Autowired

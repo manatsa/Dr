@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -57,11 +56,10 @@
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="role">User Role :</label>
                         <select class="form-control col-lg-8" name="role" id="role" required="true">
-                            <option>ROLE_GENERAL</option>
-                            <option>ROLE_CAPTURE</option>
-                            <option>ROLE_DOCTOR</option>
-                            <option>ROLE_ADMIN</option>
-                            <option>ROLE_SUPER</option>
+                            <c:forEach items="${roles}" var="role">
+                                <option class="text-uppercase">${role.role}</option>
+                            </c:forEach>
+
                         </select>
                     </fieldset>
                     <div class="row">

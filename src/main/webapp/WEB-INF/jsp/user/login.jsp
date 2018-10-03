@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
     <title>Login Page</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" media="screen" href="../webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="../css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../webjars/popper.js/1.14.4/popper.min.js"></script>
+    <script type="text/javascript" src="../webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
 </head>
 <body>
 <section class="container">
@@ -26,9 +26,9 @@
         <div class="panel-body">
             <form name='f' action="/login" method="post">
                 <legend>Enter Your Login Details <span class="glyphicon glyphicon-lock"></span></legend>
-                <%--<div class="row">--%>
-                    <%--<span class="text-danger  with-blink">${errormessage}</span>--%>
-                <%--</div>--%>
+                <div class="row">
+                    <span class="text-danger  with-blink">${errormessage}</span>
+                </div>
                 <fieldset class="form-group">
                     <label class="control-label col-md-3" for="usertext">Username</label>
                     <input type="text" class="form-control col-md-9" title="Your username" placeholder="Your Username here" name="username" id="usertext" required="true" />
