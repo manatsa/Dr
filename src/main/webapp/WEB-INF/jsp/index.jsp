@@ -14,6 +14,7 @@
 
     <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
+    <script src="/js/jquery.tableFilter.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
 

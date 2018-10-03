@@ -32,6 +32,7 @@
         </div>
         <div class="panel-body">
             <div class="row text-center pad-10-60">
+                <a class="btn btn-warning pull-left text-danger" href="/user/reset/${user.id}"> <span class="glyphicon glyphicon-refresh" /> Reset Password</a>
                 <a class="btn btn-warning pull-right text-danger" href="/user/"><span class="glyphicon glyphicon-remove" /> </a>
             </div>
             <table class="table table-responsive table-striped">

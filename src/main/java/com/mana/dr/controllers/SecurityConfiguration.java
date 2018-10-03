@@ -43,11 +43,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/error").permitAll()
+                    //.antMatchers("/error").permitAll()
                     .antMatchers("/login").permitAll()
                     .antMatchers("/").authenticated()
-                    .antMatchers("/user/**").access("hasRole('ROLE_SUPER') or hasRole('ROLE_USER')")
-
+                    .antMatchers("/user/**").access("hasRole('ROLE_SUPER') or hasRole('ROLE_ADMIN')")
+                    .antMatchers("/patient/**").access("hasRole('ROLE_SUPER') or hasRole('ROLE_USER')")
                 .and()
                     .formLogin()
                     .loginPage("/login").permitAll()

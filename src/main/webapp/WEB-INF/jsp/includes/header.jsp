@@ -115,11 +115,12 @@
                             <span class="glyphicon glyphicon-user"></span> <%=acount%><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/user/new.html">New User</a></li>
-                            <li><a href="/user/">View Users</a></li>
-                            <li><a href="#">Edit user</a></li>
-                            <li><a href="#">Disable user</a></li>
-                            <li><a href="#">Delete user</a></li>
+                            <li><a href="/user/reset">Reset Password</a></li>
+                            <li><a href="/user/new.html">Create Another User</a></li>
+                            <li><a href="/user/find.html">Find User</a></li>
+                            <li><a href="/user/">Show All Users</a></li>
+                            <li><a href="#">View Own Profile</a></li>
+
                         </ul>
                     </li>
                 </ul>

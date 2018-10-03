@@ -11,10 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.List;
 
 @Controller
@@ -29,6 +29,9 @@ public class UserController {
     @Autowired
     RoleService roleService;
 
+    @PersistenceContext
+    EntityManager em;
+
     @RequestMapping(value = "/user/new.html")
     public String initCreate(Model model)
     {
@@ -40,7 +43,7 @@ public class UserController {
     @RequestMapping(value = "/user/create.html")
     public String newUser(HttpServletRequest request, Model model)
     {
-        try{
+
             String firstName=request.getParameter("firstName");
             String lastName=request.getParameter("lastName");
             String userName=request.getParameter("userName");
@@ -54,16 +57,11 @@ public class UserController {
             user.setRole(roleName);
             user.setCreator("system");
             userService.saveUser(user);
-        }catch (Exception e){
-            e.printStackTrace();
-            model.addAttribute("error",e.getMessage());
-            StringWriter errors = new StringWriter();
-            e.printStackTrace(new PrintWriter(errors));
-            model.addAttribute("exception",errors.toString());
-            return "errors/error";
-        }
 
-        return "user/createUser";
+            List<User> users=userService.getAllUsers();
+            model.addAttribute("users",users);
+
+        return "user/viewUsers";
     }
 
 
@@ -118,13 +116,20 @@ public class UserController {
     {
             String userRole=request.getParameter("userRole");
             user.setRole(roleService.getRoleByName(userRole).getRole());
-        try{
+
             userService.editUser(user,user.getId());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-System.err.println("edited!");
-        return "redirect:/user";
+
+        List<User> users=userService.getAllUsers();
+        model.addAttribute("users",users);
+        return "user/viewUsers";
+    }
+
+    @RequestMapping("/user/reset/{id}")
+    public  String findUser(Model model,@PathVariable Long id)
+    {
+        User user=userService.getUserById(id);
+        model.addAttribute("user",user);
+        return "user/resetPassword";
     }
 
 
