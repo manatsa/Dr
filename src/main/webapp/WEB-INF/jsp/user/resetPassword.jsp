@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,17 +19,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
 </head>
 <body>
-<section class="container">
-    <div class="panel panel-warning col-md-6 col-md-offset-3">
+
+<section class="container round-padd">
+
+    <div class="panel panel-warning col-md-8 col-md-offset-3">
         <div class="panel-heading">
             <h1 class="panel-title">PASSWORD RESET WIZARD</h1>
         </div>
         <div class="panel-body">
-            <form action="" method="post">
+            <form action="/user/doreset/${user.id}" method="post">
                 <legend class="text-uppercase text-center">New Password For   USER ${user.firstName} ${user.lastName}</legend>
                 <fieldset class="form-group">
-                    <label class="control-label col-md-2" for="password">New Password</label>
-                    <input type="password" class="form-control" name="password" id="password" />
+                    <label class="control-label col-md-3" for="password">New Password</label>
+                    <input type="text" class="form-control col-md-9" name="password" id="password" />
                 </fieldset>
 
                 <div style="padding: 10px 50px; margin: 20px;">

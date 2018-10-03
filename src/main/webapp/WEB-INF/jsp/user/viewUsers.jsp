@@ -23,14 +23,28 @@
 
 <body>
 <jsp:include page="../includes/header.jsp" />
+<%! boolean err=false;
+    String cl="text-success";
+    String msg="";
+%>
+<c:set var="err" value="${err}" />
+
+<c:if test="${err}==false">
+    <c:set var="cl" value="text-danger" />
+</c:if>
 <section class="container padded">
 
+    <div class="row">
+        <span class="<%=cl%>">${message}</span>
+    </div>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title text-uppercase ">All System users</h1>
         </div>
+
         <div class="panel-body">
             <div class="row text-center pad-5-60">
+
                 <a class="btn btn-warning pull-right text-danger" href="/"><span class="glyphicon glyphicon-remove" /> </a>
             </div>
             <div id="myContainer">
@@ -94,119 +108,3 @@
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
-
-<%--<!doctype html>--%>
-<%--<html class="no-js" lang="">--%>
-<%--<head>--%>
-    <%--<meta charset="utf-8">--%>
-    <%--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">--%>
-    <%--<title>jQuery Table Filtering Demo Page</title>--%>
-    <%--<meta name="description" content="">--%>
-    <%--<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">--%>
-    <%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
-
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">--%>
-    <%----%>
-
-
-<%--</head>--%>
-<%--<body>--%>
-<%--<div id="jquery-script-menu">--%>
-
-
-<%--<div class="container" style="margin-top:150px;">--%>
-    <%--<h1>jQuery Table Filtering Demo Page</h1>--%>
-    <%--<div class="row">--%>
-        <%--<div id="filter-container" class="panel panel-default col-md-12" style="padding:20px;">--%>
-            <%--<div class="form-group">--%>
-                <%--<input class="form-control" type="text" id="filter" placeholder="...type here to filter students by name...">--%>
-            <%--</div>--%>
-            <%--<table class="table table-striped user-table table-inverse" id = 'students' style="width:100%;">--%>
-                <%--<!-- Table Headings -->--%>
-                <%--<thead>--%>
-                <%--<th>Student</th><th>Email</th><th>Banner Id</th>--%>
-                <%--</thead>--%>
-                <%--<!-- Table Body -->--%>
-                <%--<tbody >--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Ellen Ripley</td>--%>
-                    <%--<td>eripley@nostromo.com</td>--%>
-                    <%--<td>434234344557</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Dwayne Hicks</td>--%>
-                    <%--<td>dhicks@sulaco.com</td>--%>
-                    <%--<td>2334676663757</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Rebecca "Newt" Jordan</td>--%>
-                    <%--<td>newt@lv426.com</td>--%>
-                    <%--<td>56578476456566</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Carter Burke</td>--%>
-                    <%--<td>cburke@weyland-yutani.com</td>--%>
-                    <%--<td>5774654565465</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">William Hudson</td>--%>
-                    <%--<td>whudson@sulaco.com</td>--%>
-                    <%--<td>5774564567676</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Bishop</td>--%>
-                    <%--<td>bishop@weyland-yutani.com</td>--%>
-                    <%--<td>56546768767676</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Arthur Dallas</td>--%>
-                    <%--<td>dallas@nostromo.com</td>--%>
-                    <%--<td>56678877676765</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Joan Lambert</td>--%>
-                    <%--<td>lambert@nostromo.com</td>--%>
-                    <%--<td>45645776767676</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Samuel Brett</td>--%>
-                    <%--<td>brett@nostromo.com</td>--%>
-                    <%--<td>23434343435466</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Gilbert Kane</td>--%>
-                    <%--<td>kane@nostromo.com</td>--%>
-                    <%--<td>98066769335553</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Dennis Parker</td>--%>
-                    <%--<td>parker@nostromo.com</td>--%>
-                    <%--<td>272758787833322</td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td class="filter-cell">Jones the Cat</td>--%>
-                    <%--<td>jonesy@nostromo.com</td>--%>
-                    <%--<td>426789211173289</td>--%>
-                <%--</tr>--%>
-                <%--</tbody>--%>
-            <%--</table>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-
-    <%--<hr>--%>
-
-    <%--<footer>--%>
-        <%--<p>&copy; UNM A&amp;S 2017</p>--%>
-    <%--</footer>--%>
-<%--</div> <!-- /container -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>--%>
-
-<%--<script src="/js/jquery.tableFilter.js"></script>--%>
-<%--<script>--%>
-    <%--//search filtering for table of students--%>
-    <%--$(document).ready(function(){--%>
-        <%--$('#filter-container').tableFilter({tableID: '#students', autofocus: true});--%>
-    <%--});--%>
-<%--</script>--%>
-
-<%--</body>--%>
-<%--</html>--%>

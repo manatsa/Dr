@@ -125,11 +125,30 @@ public class UserController {
     }
 
     @RequestMapping("/user/reset/{id}")
-    public  String findUser(Model model,@PathVariable Long id)
+    public  String passReset(Model model,@PathVariable Long id)
     {
         User user=userService.getUserById(id);
         model.addAttribute("user",user);
         return "user/resetPassword";
+    }
+
+    @RequestMapping("/user/doreset/{id}")
+    public  String doReset(Model model,HttpServletRequest request, @PathVariable Long id)
+    {
+        try{
+            User user=userService.getUserById(id);
+            String pass = request.getParameter("password");
+            user.setPassword(passwordEncoder.encode(pass));
+            userService.editUser(user, user.getId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        List<User> users=userService.getAllUsers();
+        model.addAttribute("users",users);
+        model.addAttribute("message","Password reset was successful");
+        model.addAttribute("err",false);
+        return "user/viewUsers";
     }
 
 

@@ -99,12 +99,13 @@
                             <li><a href="#">Delete Referral</a></li>
                         </ul>
                     </li>
-    <%! String acount="Account"; %>
+    <%! String acount="Account"; long id=-1; %>
                     <%
         if(request.getSession().getAttributeNames().hasMoreElements())
         {
             User user=((User)request.getSession().getAttribute("user"));
             acount=user.getFirstName()+" "+user.getLastName();
+            id=user.getId();
         }
 
 
@@ -115,9 +116,8 @@
                             <span class="glyphicon glyphicon-user"></span> <%=acount%><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/user/reset">Reset Password</a></li>
+                            <li><a href="/user/reset/<%=id%>">Reset Password</a></li>
                             <li><a href="/user/new.html">Create Another User</a></li>
-                            <li><a href="/user/find.html">Find User</a></li>
                             <li><a href="/user/">Show All Users</a></li>
                             <li><a href="#">View Own Profile</a></li>
 
