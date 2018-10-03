@@ -26,9 +26,9 @@
         <div class="panel-body">
             <form name='f' action="/login" method="post">
                 <legend>Enter Your Login Details <span class="glyphicon glyphicon-lock"></span></legend>
-                <div class="row">
-                    <span class="text-danger  with-blink">${errormessage}</span>
-                </div>
+                <%--<div class="row">--%>
+                    <%--<span class="text-danger  with-blink">${errormessage}</span>--%>
+                <%--</div>--%>
                 <fieldset class="form-group">
                     <label class="control-label col-md-3" for="usertext">Username</label>
                     <input type="text" class="form-control col-md-9" title="Your username" placeholder="Your Username here" name="username" id="usertext" required="true" />

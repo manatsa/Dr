@@ -4,8 +4,8 @@ import com.mana.dr.entities.Roles;
 import com.mana.dr.entities.User;
 import com.mana.dr.services.RoleService;
 import com.mana.dr.services.UserInterface;
-import com.mana.dr.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,14 +15,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
 
     @Autowired
     UserInterface userService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     RoleService roleService;
@@ -46,14 +50,15 @@ public class UserController {
             String rolename=request.getParameter("role");
             User user=new User();
             user.setUserName(userName);
-            user.setPassword(password);
+            user.setPassword(passwordEncoder.encode(password));
             user.setLastName(lastName);
             user.setFirstName(firstName);
             Roles role=new Roles();
             role.setRole(rolename);
-            user.setRole(role);
-            //user.setCreateDate(new Date());
-            //user.setModifyDate(new Date());
+
+            Set<Roles> roles=new HashSet<Roles>();
+            roles.add(role);
+            user.setRoles(roles);
             user.setCreator("system");
             userService.saveUser(user);
         }catch (Exception e){
@@ -119,8 +124,9 @@ public class UserController {
     public String editedUser(User user,HttpServletRequest request, Model model)
     {
             String userRole=request.getParameter("userRole");
-            //user.setModifyDate(new Date());
-            user.setRole(roleService.getRoleByName(userRole));
+            Set<Roles> roles=new HashSet<>();
+            roles.add(roleService.getRoleByName(userRole));
+            user.setRoles(roles);
         try{
             userService.editUser(user,user.getId());
         }catch (Exception e){

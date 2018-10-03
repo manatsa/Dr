@@ -2,6 +2,8 @@ package com.mana.dr.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Roles {
@@ -10,6 +12,8 @@ public class Roles {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
 
     @NotNull
     private String role;

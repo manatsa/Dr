@@ -6,6 +6,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -42,9 +44,9 @@ public class User {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "role_id")
-    private Roles role;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(name = "user_roles", joinColumns = { @JoinColumn(name = "user_id") },inverseJoinColumns = { @JoinColumn(name = "role_id") })
+    Set<Roles> roles = new HashSet<>();
 
 
     public Long getId() {
@@ -111,11 +113,11 @@ public class User {
         this.password = password;
     }
 
-    public Roles getRole() {
-        return role;
+    public Set<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
     }
 }

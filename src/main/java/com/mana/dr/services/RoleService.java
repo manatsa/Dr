@@ -32,8 +32,7 @@ public class RoleService implements RoleInterface {
 
        Roles roles= (Roles)em.createQuery("select r from "+Roles.class.getName()+" r where r.role=:rolename")
                 .setParameter("rolename",rolez)
-                .getSingleResult();
-        System.err.println(roles.getId());
+                .getSingleResult();;
        return roles;
 
     }

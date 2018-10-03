@@ -1,3 +1,5 @@
+<%@ page import="java.io.StringWriter" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,32 +20,48 @@
 </head>
 <body>
 <section class="container">
-    <h1>Error Details Below</h1>
+    <%!
+        int err=0;
+        Throwable throwable= new Throwable("No Stacktrace for the exception");
+        String error="";
+    %>
+    <% err =(Integer)request.getAttribute("javax.servlet.error.status_code");
+        throwable=(Throwable)request.getAttribute("javax.servlet.error.exception");
+        if(throwable!=null) {
+            StringWriter errors = new StringWriter();
+            throwable.printStackTrace(new PrintWriter(errors));
+            error = errors.toString();
+        }
+    %>
+    <h1>Error Details Below   <%=err%></h1>
+    <div class="row pad-10-60">
+        <div class="col-md-4 ">
+            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+        </div>
+        <div class="col-md-4">
+            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+        </div>
+        <div class="col-md-4">
+            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+        </div>
+
+    </div>
+
     <div class="row">
-        <div class="col-md-4">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
-        </div>
-        <div class="col-md-4">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
-        </div>
-        <div class="col-md-4">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
-        </div>
+        <button data-toggle="collapse" class="btn btn-danger col-md-offset-3" data-target="#error">Click This Error To see More <span class="caret" /></button>
 
-    </div>
-
-    <button data-toggle="collapse" data-target="#demo">${error}</button>
-
-    <div id="demo" class="collapse bg-warning">
-        <div class="panel panel-danger panel-collapse ">
-            <div class="panel-heading">
-                <h1 class="panel-title text-uppercase ">${error}</h1>
-            </div>
-            <div class="panel-body">
-                <span class="text-center text-justify">${exception}</span>
+        <div id="error" class="collapse bg-warning pad-10-60">
+            <div class="panel panel-danger panel-collapse ">
+                <div class="panel-heading">
+                    <h1 class="panel-title text-uppercase "><%=throwable%></h1>
+                </div>
+                <div class="panel-body">
+                    <span class="text-center text-justify"><%=error%></span>
+                </div>
             </div>
         </div>
     </div>
+
 
 
 

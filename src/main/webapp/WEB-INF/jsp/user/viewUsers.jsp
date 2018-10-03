@@ -56,7 +56,7 @@
                             <td>${user.creator}</td>
                             <td><fmt:formatDate value="${user.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
                             <td><fmt:formatDate value="${user.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/></td>
-                            <td>${user.role.role}</td>
+                            <td>${user.roles.role}</td>
                             <td><a class="" href="/user/view/${user.id}" ><span class="glyphicon glyphicon-play-circle" /> </a> </td>
                             <td><a class="" href="/user/edit/${user.id}" ><span class="glyphicon glyphicon-pencil" /> </a> </td>
                             <td></td>
