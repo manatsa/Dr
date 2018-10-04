@@ -18,7 +18,7 @@ public class PatientController {
         return "patient/createPatient";
     }
 
-    @RequestMapping("/patient/created")
+    @RequestMapping("/created")
     public String patientCreated(Patient patient, Kinsman kinsman)
     {
         System.err.println(patient.getFirstName()+" "+kinsman.getFirstName());
