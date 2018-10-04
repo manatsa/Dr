@@ -1,3 +1,4 @@
+<%@ page import="com.mana.dr.entities.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -57,7 +58,18 @@
 </div>
 
 <section class="container padded">
+    <%! String acount="Account"; long id=-1; %>
+    <%
+        if(request.getSession().getAttributeNames().hasMoreElements())
+        {
+            User user=((User)request.getSession().getAttribute("user"));
+            acount=user.getFirstName()+" "+user.getLastName();
+            id=user.getId();
 
+        }
+
+
+    %>
     <div class="row">
         <div class="pull-left">
             <h1>Hello world</h1>
@@ -66,6 +78,9 @@
             <a class="btn btn-primary" href="/login" > Login <span class="glyphicon glyphicon-log-in"></span></a>
             <a class="btn btn-warning"  data-toggle="modal" data-target="#logoutModal"> Logout <span class="glyphicon glyphicon-log-out"></span> </a>
         </div>
+    </div>
+    <div class="row">
+        <span class="text-danger  with-blink">${message}</span>
     </div>
 
     <!-- The carousel-->

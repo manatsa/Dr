@@ -18,7 +18,7 @@ public class MainController {
     @Autowired
     UserInterface userService;
 
-    @RequestMapping({"/","/user","/patient"})
+    @RequestMapping({"/","/user","/patient","/home"})
     public String index(HttpServletRequest request, Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();

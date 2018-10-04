@@ -21,10 +21,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="nav-item-heading bg-success navbar-text" ><span class="glyphicon glyphicon-king"></span> Patient</li>
-                            <li><a href="#">New Patient</a></li>
-                            <li><a href="#">View Patients</a></li>
-                            <li><a href="#">Edit Patient</a></li>
-                            <li><a href="#">Delete Patient</a></li>
+                            <li><a href="/patient/new.html">New Patient</a></li>
+                            <li><a href="#">Show All Patients</a></li>
+
                         </ul>
                     </li>
 
@@ -99,17 +98,18 @@
                             <li><a href="#">Delete Referral</a></li>
                         </ul>
                     </li>
-    <%! String acount="Account"; long id=-1; %>
+                    <%! String acount="Account"; long id=-1; boolean reports=false; String admin=""; %>
                     <%
-        if(request.getSession().getAttributeNames().hasMoreElements())
-        {
-            User user=((User)request.getSession().getAttribute("user"));
-            acount=user.getFirstName()+" "+user.getLastName();
-            id=user.getId();
-        }
+                        if(request.getSession().getAttributeNames().hasMoreElements())
+                        {
+                            User user=((User)request.getSession().getAttribute("user"));
+                            acount=user.getFirstName()+" "+user.getLastName();
+                            id=user.getId();
+
+                        }
 
 
-    %>
+                    %>
                     <li class="nav-item"><a href=".">Reports</a> </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -119,7 +119,8 @@
                             <li><a href="/user/reset/<%=id%>">Reset Password</a></li>
                             <li><a href="/user/new.html">Create Another User</a></li>
                             <li><a href="/user/">Show All Users</a></li>
-                            <li><a href="#">View Own Profile</a></li>
+                            <li><a href="/user/view/<%=id%>">View Own Profile</a></li>
+
 
                         </ul>
                     </li>

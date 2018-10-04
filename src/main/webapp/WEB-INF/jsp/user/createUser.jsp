@@ -62,12 +62,12 @@
 
                         </select>
                     </fieldset>
+                    <hr/>
                     <div class="row">
                         <div style="padding: 10px 50px; margin: 20px;">
                             <a  role="button" class="btn btn-warning pull-left" href="/">Cancel</a>
                             <button type="submit" role="button" class="btn btn-primary pull-right">Save</button>
                         </div>
-
                     </div>
 
                 </form>

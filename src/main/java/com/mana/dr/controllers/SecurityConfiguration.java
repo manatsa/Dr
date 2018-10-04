@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
@@ -43,15 +42,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    //.antMatchers("/error").permitAll()
-                    .antMatchers("/login").permitAll()
                     .antMatchers("/").authenticated()
                     .antMatchers("/user/**").access("hasRole('ROLE_SUPERUSER') or hasRole('ROLE_ADMIN')")
                     .antMatchers("/patient/**").access("hasRole('ROLE_MANAGER') or hasRole('ROLE_USER')  or hasRole('ROLE_DOCTOR')  or hasRole('ROLE_SUPERUSER')")
+                    .antMatchers("/error").permitAll()
                 .and()
                     .formLogin()
                     .loginPage("/login").permitAll()
-                    .successForwardUrl("/").permitAll()
+                    .loginProcessingUrl("/home")
+                    .successForwardUrl("/")
                     .failureForwardUrl("/login")
                 .and()
                 .logout()
@@ -65,4 +64,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     ;
 
     }
+
+
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        // require all requests to be authenticated except for the resources
+//        http.authorizeRequests().antMatchers("/javax.faces.resource/**")
+//                .permitAll().anyRequest().authenticated().antMatchers("/test/**").permitAll();
+//        // login
+//        http.formLogin().loginPage("/login.xhtml").permitAll()
+//                .failureUrl("/login.xhtml?error=true");
+//        // logout
+//        http.logout().logoutSuccessUrl("/login.xhtml");
+//        // not needed as JSF 2.2 is implicitly protected against CSRF
+//        http.csrf().disable();
+//    }
+//
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth)
+//            throws Exception {
+//        auth.inMemoryAuthentication().withUser("user")
+//                .password("user").roles("USER").and().withUser("admin")
+//                .password("admin").roles("ADMIN");
+//    }
 }

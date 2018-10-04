@@ -26,11 +26,9 @@
             <h1 class="text-center text-uppercase">Please Login <span class="glyphicon glyphicon-lock"></span></h1>
         </div>
         <div class="panel-body">
-            <form name='f' action="/login" method="post">
+            <form name='f' action="/home" method="post">
                 <legend>Enter Your Login Details <span class="glyphicon glyphicon-lock"></span></legend>
-                <%--<div class="row">--%>
-                    <%--<span class="text-danger  with-blink">${errormessage}</span>--%>
-                <%--</div>--%>
+
                 <fieldset class="form-group md-form">
                     <label class="control-label hidden" for="usertext">Username</label>
                     <input type="text" class="form-control col-md-9" title="Your username" placeholder="Your Username here" name="username" id="usertext" required="true" />
@@ -44,7 +42,7 @@
                        value="${_csrf.token}"/>
                 <div class="row">
                     <div style="padding: 10px 50px; margin: 20px;">
-                        <a  role="button" class="btn btn-warning pull-left" href="/">Cancel</a>
+                        <a  role="button" class="btn btn-warning pull-left btn-rounded waves-effect" href="/">Cancel</a>
                         <button type="submit" name="submit" role="button" class="btn btn-primary pull-right">Save</button>
                     </div>
 

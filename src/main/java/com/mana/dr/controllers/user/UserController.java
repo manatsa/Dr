@@ -151,5 +151,11 @@ public class UserController {
         return "user/viewUsers";
     }
 
+    @RequestMapping("/test")
+    public String test()
+    {
+        return "jsfjsp";
+    }
+
 
 }
