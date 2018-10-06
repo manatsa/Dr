@@ -1,6 +1,7 @@
 package com.mana.dr.services;
 
 import com.mana.dr.entities.User;
+import com.mana.dr.interfaces.UserInterface;
 import com.mana.dr.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService implements  UserInterface {
+public class UserService implements UserInterface {
 
     @Autowired
     private UserRepository userRepository;

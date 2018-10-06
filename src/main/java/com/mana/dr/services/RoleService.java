@@ -1,13 +1,13 @@
 package com.mana.dr.services;
 
 import com.mana.dr.entities.Roles;
+import com.mana.dr.interfaces.RoleInterface;
 import com.mana.dr.repositories.RolesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.swing.*;
 import java.util.List;
 
 

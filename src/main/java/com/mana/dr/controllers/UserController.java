@@ -1,9 +1,9 @@
-package com.mana.dr.controllers.user;
+package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Roles;
 import com.mana.dr.entities.User;
 import com.mana.dr.services.RoleService;
-import com.mana.dr.services.UserInterface;
+import com.mana.dr.interfaces.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

@@ -53,7 +53,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="navbar-text"><span class="glyphicon glyphicon-plus-sign"></span> Hospital</li>
-                            <li><a href="#">New Hospital</a></li>
+                            <li><a href="/hospital/new.html">New Hospital</a></li>
                             <li><a href="#">View Hospitals</a></li>
                             <li><a href="#">Edit Hospital</a></li>
                             <li><a href="#">Delete Hospital</a></li>

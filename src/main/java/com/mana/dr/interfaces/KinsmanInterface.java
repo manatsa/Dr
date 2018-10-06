@@ -1,4 +1,4 @@
-package com.mana.dr.services;
+package com.mana.dr.interfaces;
 
 import com.mana.dr.entities.Kinsman;
 

@@ -79,6 +79,6 @@ public class PatientController {
         patient.setKinsman(kinsman);
         patientService.savePatient(patient);
         model.addAttribute("done",true);
-        return "patient/editPatient";
+        return "/";
     }
 }

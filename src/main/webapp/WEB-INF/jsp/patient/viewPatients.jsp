@@ -35,6 +35,7 @@
 <c:if test="${err}==false">
     <c:set var="cl" value="text-danger" />
 </c:if>
+
 <section class="container padded">
 
     <div class="row">

@@ -30,7 +30,7 @@
         <div class="panel-body">
 
             <form action="/user/doreset/${user.id}" method="post">
-                <legend class="text-uppercase text-center text danger">New Password For   USER ${user.firstName} ${user.lastName} <a onclick="window.history.back()" class="btn btn-danger pull-right pad-5-5"> &times;</a></legend>
+                <legend class="text-uppercase text-center text danger">New Password For   USER ${user.firstName} ${user.lastName} <a onclick="window.history.back()" class="btn btn-danger pull-right pad-5-5"> &nbsp; &times  &nbsp;</a></legend>
                 <fieldset class=" md-form form-group">
                     <%--<label class="control-label col-md-3 text-danger" for="password">New Password</label>--%>
                     <input type="text" class="form-control col-md-9" name="password" id="password" placeholder="Enter the new password here"/>

@@ -1,7 +1,7 @@
 package com.mana.dr.controllers;
 
 import com.mana.dr.entities.User;
-import com.mana.dr.services.UserInterface;
+import com.mana.dr.interfaces.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
