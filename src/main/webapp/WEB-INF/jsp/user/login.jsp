@@ -21,11 +21,15 @@
 <body>
 <section class="container">
 
+    <div id="spinner" class="spinner" style="display:none;">
+        <img id="img-spinner" src="/images/loader.gif" alt="Loading" class="img-responsive"/>
+    </div>
     <div class="panel panel-primary col-md-6 col-md-offset-2">
         <div class="panel-heading">
             <h1 class="text-center text-uppercase">Please Login <span class="glyphicon glyphicon-lock"></span></h1>
         </div>
         <div class="panel-body">
+
             <form name='f' action="/home" method="post">
                 <legend>Enter Your Login Details <span class="glyphicon glyphicon-lock"></span></legend>
 

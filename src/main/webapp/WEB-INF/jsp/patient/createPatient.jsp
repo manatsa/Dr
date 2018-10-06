@@ -17,17 +17,13 @@
 </head>
 <body>
 <section class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <span>${message}</span>
-        </div>
 
-    </div>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="text-uppercase">NEW PATIENT</h1>
         </div>
         <div class="panel-body">
+
             <form action="/patient/created" class="form-horizontal" method="post">
                 <legend class="text-uppercase text-danger text-center">Please fill in the form below <a class="btn btn-warning pull-right pad-5-5" onclick="window.history.back()">&nbsp; &times  &nbsp;</a></legend>
 

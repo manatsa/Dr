@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.mana.dr.entities.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -11,7 +12,6 @@
     <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <%--<link rel="stylesheet" media="screen" href="/css/bootstrap.min.css">--%>
     <link rel="stylesheet" media="screen" href="/css/main.css">
-    <link rel="shortcut icon" href="../../favicon.ico">
 
     <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
@@ -19,15 +19,14 @@
     <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
 
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--%>
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
-    <%--<!-- Popper library -->--%>
-    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js"></script>--%>
-    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
-<%--</head>--%>
+</head>
 <body>
+<div id="spinner" class="spinner" style="display:none;">
+    <img id="img-spinner" src="/images/loader.gif" alt="Loading" class="img-responsive"/>
+</div>
 <jsp:include page="includes/header.jsp" />
 <div id="logoutModal" class="modal fade" role="dialog">
+
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -59,6 +58,7 @@
 
 <section class="container padded">
     <%! String acount="Account"; long id=-1; %>
+
     <%
         if(request.getSession().getAttributeNames().hasMoreElements())
         {
@@ -70,6 +70,7 @@
 
 
     %>
+
     <div class="row">
         <div class="pull-left">
             <h1>Hello world</h1>
@@ -182,5 +183,6 @@
     </div>
 
 </section>
+
 </body>
 </html>

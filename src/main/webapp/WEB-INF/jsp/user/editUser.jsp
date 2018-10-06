@@ -27,6 +27,7 @@
             <h1 class="panel-title text-uppercase ">Edit User : ${user.firstName} ${user.lastName}</h1>
         </div>
         <div class="panel-body">
+
             <form  method="post" action="/user/edit.html" >
                 <legend class="text-center form-control-static">Enter New User Details</legend>
                 <%--<div class="form-group">--%>

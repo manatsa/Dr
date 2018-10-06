@@ -1,4 +1,6 @@
 <%@ page import="com.mana.dr.entities.User" %>
+
+
 <nav class="navbar  navbar-inverse navbar-primary ">
         <div class="container">
             <div class="navbar-header">
@@ -22,7 +24,7 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item-heading bg-success navbar-text" ><span class="glyphicon glyphicon-king"></span> Patient</li>
                             <li><a href="/patient/new.html">New Patient</a></li>
-                            <li><a href="#">Show All Patients</a></li>
+                            <li><a href="/patient/">Show All Patients</a></li>
 
                         </ul>
                     </li>
@@ -43,11 +45,18 @@
                         </ul>
                     </li>
 
+
+
                     <li class="nav-item">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-adjust"></span><span class="glyphicon glyphicon-leaf"></span>Medicine<span class="caret"></span>
+                            <span class="glyphicon glyphicon-briefcase"></span> Hosp Admin <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
+                            <li class="navbar-text"><span class="glyphicon glyphicon-plus-sign"></span> Hospital</li>
+                            <li><a href="#">New Hospital</a></li>
+                            <li><a href="#">View Hospitals</a></li>
+                            <li><a href="#">Edit Hospital</a></li>
+                            <li><a href="#">Delete Hospital</a></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon-adjust"></span> Drugs</li>
                             <li><a href="#">New Drug</a></li>
                             <li><a href="#">View Drugs</a></li>
@@ -59,18 +68,6 @@
                             <li><a href="#">View Herbs</a></li>
                             <li><a href="#">Edit Herb</a></li>
                             <li><a href="#">Delete Herb</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-plus-sign"></span> Hospital <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">New Hospital</a></li>
-                            <li><a href="#">View Hospitals</a></li>
-                            <li><a href="#">Edit Hospital</a></li>
-                            <li><a href="#">Delete Hospital</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

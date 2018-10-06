@@ -21,11 +21,14 @@
     <jsp:include page="../includes/header.jsp" />
     <section class="container padded">
 
+
+
         <div class="panel panel-primary col-md-8 col-md-offset-2">
             <div class="panel-heading">
                 <h1 class="panel-title text-uppercase ">New User Creation</h1>
             </div>
             <div class="panel-body">
+
                 <form  method="post" action="/user/create.html" >
                     <legend class="text-center form-control-static">Enter New User Details</legend>
                     <div class="form-group">

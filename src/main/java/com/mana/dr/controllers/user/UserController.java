@@ -60,14 +60,17 @@ public class UserController {
 
             List<User> users=userService.getAllUsers();
             model.addAttribute("users",users);
-
+            model.addAttribute("done",true);
         return "user/viewUsers";
     }
 
 
     @RequestMapping(value = "/login")
-    public String loginRequest()
+    public String loginRequest(Model model)
     {
+        model.addAttribute("done",true);
+        model.addAttribute("logout",false);
+        model.addAttribute("message","You are now successfully logged in!");
         return "user/login";
     }
 
@@ -78,7 +81,9 @@ public class UserController {
         httpSession.setAttribute("user",null);
         httpSession.removeAttribute("user");
         httpSession.invalidate();
-        model.addAttribute("logging","You have successfully logged out!");
+        model.addAttribute("done",true);
+        model.addAttribute("logout",true);
+        model.addAttribute("message","Please not that you are now logged out!");
         return "redirect:/";
     }
 
@@ -121,6 +126,7 @@ public class UserController {
 
         List<User> users=userService.getAllUsers();
         model.addAttribute("users",users);
+        model.addAttribute("done",true);
         return "user/viewUsers";
     }
 
@@ -147,7 +153,7 @@ public class UserController {
         List<User> users=userService.getAllUsers();
         model.addAttribute("users",users);
         model.addAttribute("message","Password reset was successful");
-        model.addAttribute("err",false);
+        model.addAttribute("done",true);
         return "user/viewUsers";
     }
 

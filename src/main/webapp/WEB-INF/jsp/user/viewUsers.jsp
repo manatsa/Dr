@@ -12,11 +12,14 @@
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
     <title>All System Users</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/css/mdb.min.css" />
+    <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/css/mdb.min.css" />--%>
     <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" media="screen" href="/css/datatables.min.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
+    <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">--%>
+
 
 
 
@@ -47,26 +50,20 @@
 
                 <a class="btn btn-warning pull-right text-danger" href="/"><span class="glyphicon glyphicon-remove" /> </a>
             </div>
-            <div id="myContainer">
+            <div id="tableBtns" class="row">
 
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
-                    <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
-                </div>
-
-                </div>
+            </div>
 
                     <table class="table table-responsive table-striped" id="users_table">
                         <thead>
                         <th>FIRST NAME</th>
                         <th>LAST NAME</th>
                         <th>USER NAME</th>
-                        <th>CREATOR</th>
                         <th>CREATE DATE</th>
                         <th>ROLE</th>
-                        <th>VIEW  </th>
-                        <th>EDIT  </th>
-                        <th>PASS RESET  </th>
+                        <th>VIEW</th>
+                        <th>EDIT</th>
+                        <th><span class="glyphicon glyphicon-refresh"/> RESET</th>
                         <th>DELETE </th>
                         </thead>
                         <tbody>
@@ -75,7 +72,6 @@
                                 <td>${user.firstName}</td>
                                 <td>${user.lastName}</td>
                                 <td>${user.userName}</td>
-                                <td>${user.creator}</td>
                                 <td><fmt:formatDate value="${user.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
                                 <td> ${user.role}</td>
                                 <td><a class="" href="/user/view/${user.id}" ><span class="glyphicon glyphicon-play-circle" /> </a> </td>
@@ -95,14 +91,29 @@
 
 </section>
 
-<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script src="/js/jquery.tableFilter.js"></script>
+<script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="../webjars/popper.js/1.14.4/popper.min.js"></script>
+<script type="text/javascript" src="../webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/datatables.min.js"></script>
+<%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/js/mdb.min.js"></script>--%>
+<%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>--%>
+<script type="text/javascript" src="../js/main.js"></script>
 <script>
-    //search filtering for table of students
-    $(document).ready(function(){
-        $('#filter-container').tableFilter({tableID: '#students', autofocus: true});
-    });
+   /*$("#users_table").DataTable( {
+       dom: 'Bfrtip',
+       buttons: [
+           'copy', 'excel', 'pdf'
+       ]
+   } );*/
+
+   var table = $('#users_table').DataTable( {
+       buttons: [
+           'copy', 'excel', 'pdf'
+       ]
+   } );
+
+   table.buttons().container()
+       .appendTo( $('#tableBtns', table.table().container() ) );
 </script>
 <%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/js/mdb.min.js"></script>--%>
 <script type="text/javascript" src="/js/main.js"></script>

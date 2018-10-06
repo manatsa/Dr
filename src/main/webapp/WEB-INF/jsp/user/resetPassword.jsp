@@ -28,6 +28,7 @@
             <h1 class="panel-title">PASSWORD RESET WIZARD</h1>
         </div>
         <div class="panel-body">
+
             <form action="/user/doreset/${user.id}" method="post">
                 <legend class="text-uppercase text-center text danger">New Password For   USER ${user.firstName} ${user.lastName} <a onclick="window.history.back()" class="btn btn-danger pull-right pad-5-5"> &times;</a></legend>
                 <fieldset class=" md-form form-group">
