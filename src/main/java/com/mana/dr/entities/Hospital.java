@@ -17,6 +17,7 @@ import java.util.Date;
 public class Hospital {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotNull
