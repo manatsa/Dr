@@ -7,16 +7,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit User</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 
 <body>
 <jsp:include page="../includes/header.jsp" />
@@ -30,14 +31,8 @@
         </div>
         <div class="panel-body">
 
-            <form  method="post" action="/patient/edit.html" >
+            <form  method="post" action="/dr/patient/edit.html" >
                 <legend class="text-center form-control-static text-danger">Editing Patient Details  <a class="btn btn-warning pull-right pad-5-5" href="/patient/">&nbsp; &times  &nbsp;</a></legend>
-                <%--<div class="form-group">--%>
-                    <%--<input type="date" id="createDate" name="createDate" value="${user.createDate}" class="hidden" />--%>
-                <%--</div>--%>
-                <%--<div class="form-group">--%>
-                    <%--<input type="date" id="modifyDate" name="createDate" value="${user.modifyDate}" class="hidden" />--%>
-                <%--</div>--%>
 
                 <div class="form-group">
                     <input id="id" name="id" class="hidden" value="${patient.id}" />
@@ -45,9 +40,6 @@
                 <div class="form-group">
                     <input  name="kid" class="hidden" value="${patient.kinsman.id}" />
                 </div>
-                <%--<div class="form-group">--%>
-                    <%--<input id="creator" name="creator" class="hidden" value="${user.creator}"/>--%>
-                <%--</div>--%>
                 <fieldset class="form-group form-row">
                     <label class="control-label col-md-4" for="firstName">First Name :</label>
                     <input id="firstName" name="firstName" value="${patient.firstName}" class="form-control col-md-8" required="true" />
@@ -60,6 +52,21 @@
                     <label class="control-label col-md-4 pull-left" for="idNumber">ID Number :</label>
                     <input type="text" id="idNumber" name="idNumber" value="${patient.idNumber}" class="form-control col-md-8" required="true"/>
                 </fieldset>
+
+                <fieldset class="form-group">
+                    <label class="control-label col-md-4 pull-left" for="dob">Date of Birth :</label>
+                    <input type="date" id="dob" name="dob" value="${patient.dob}" class="form-control col-md-8" required="true"/>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label class="control-label col-md-4 pull-left" for="gender">Gender :</label>
+                    <select class="form-control col-lg-8" name="gender" value="${patient.gender}" id="gender" required="true">
+                        <option class="text-uppercase">Male</option>
+                        <option class="text-uppercase">Female</option>
+                        <option class="text-uppercase">Unspecified</option>
+                    </select>
+                </fieldset>
+
                 <fieldset class="form-group">
                     <label class="control-label col-md-4" for="address">Address</label>
                     <div class="col-md-8">

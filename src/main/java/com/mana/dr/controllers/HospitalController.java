@@ -28,7 +28,7 @@ public class HospitalController {
        hospitalService.saveHospital(hospital);
         List<Hospital> hospitals=hospitalService.getAllHospital();
         model.addAttribute("hospitals",hospitals);
-        model.addAttribute("done",true);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
         model.addAttribute("message","Hospital saved successfully!");
         return "/hospital/viewHospitals";
     }
@@ -47,5 +47,24 @@ public class HospitalController {
         model.addAttribute("hospital",hospital);
         return "hospital/viewHospital";
     }
+
+    @RequestMapping("/edit/{id}")
+    public String editHospital(Model model, @PathVariable Long id){
+        Hospital hospital=hospitalService.getHospitalById(id);
+        model.addAttribute("hospital",hospital);
+        return "hospital/editHospital";
+    }
+
+    @RequestMapping("/edit.html")
+    public String editedHospital(Hospital hospital, Model model){
+        hospitalService.editHospital(hospital,hospital.getId());
+        List<Hospital> hospitals=hospitalService.getAllHospital();
+        model.addAttribute("hospitals",hospitals);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
+        model.addAttribute("message","Hospital edited successfully!");
+
+        return "hospital/viewHospitals";
+    }
+
 
 }

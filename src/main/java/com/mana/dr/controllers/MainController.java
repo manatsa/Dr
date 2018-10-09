@@ -18,7 +18,7 @@ public class MainController {
     @Autowired
     UserInterface userService;
 
-    @RequestMapping({"/","/user","/patient","/home"})
+    @RequestMapping({"/"})
     public String index(HttpServletRequest request, Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
@@ -46,5 +46,11 @@ public class MainController {
 
         model.addAttribute("logging","You have successfully logged in!");
         return "index";
+    }
+
+    @RequestMapping("/error/loginError")
+    public String geterror()
+    {
+        return "error/loginError";
     }
 }

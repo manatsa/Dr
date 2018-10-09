@@ -1,5 +1,7 @@
 package com.mana.dr.entities;
 
+import lombok.ToString;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
@@ -7,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@ToString
 public class Roles {
 
     @Id

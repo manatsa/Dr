@@ -1,17 +1,16 @@
 package com.mana.dr.entities;
 
+import com.mana.dr.audit.Auditable;
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Data
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-public class Kinsman {
+public class Kinsman extends Auditable<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -38,7 +37,60 @@ public class Kinsman {
     @Column
     private String idNumber;
 
-//    @OneToOne
-//    private Patient patient;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
 }

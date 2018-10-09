@@ -3,22 +3,29 @@
 <%@taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>All Patients</title>
 
-    <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/css/mdb.min.css" />--%>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" href="/css/main.css">
-    <link rel="stylesheet" media="screen" href="/css/datatables.min.css">
-    <link rel="shortcut icon" href="../../../favicon.ico">
-    <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/autofill/2.3.1/css/autoFill.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.6/css/fixedColumns.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/colreorder/1.5.1/css/colReorder.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/keytable/2.4.1/css/keyTable.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/rowgroup/1.0.4/css/rowGroup.dataTables.min.css" />
+    <link rel="stylesheet"  href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css" />
+    <link rel="stylesheet"  href="../css/main.css" />
+    <link rel="shortcut icon" href="../../../favicon.ico" />
 
 
 
@@ -26,21 +33,17 @@
 
 <body>
 <jsp:include page="../includes/header.jsp" />
-<%! boolean err=false;
-    String cl="text-success";
-    String msg="";
-%>
-<c:set var="err" value="${err}" />
 
-<c:if test="${err}==false">
-    <c:set var="cl" value="text-danger" />
-</c:if>
 
 <section class="container padded">
 
-    <div class="row">
-        <span class="<%=cl%>">${message}</span>
+    <%--text-center alert alert-dismissable alert-success text-success pad-5-5--%>
+    <div class="row  pad-5-5 ">
+        <div  data-role="alert" class="(${show}">${message}
+            <a href="#" class="close pad-5-5" data-dismiss="alert" aria-label="close">&times;</a>
+        </div>
     </div>
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title text-uppercase ">All Patients</h1>
@@ -49,7 +52,7 @@
         <div class="panel-body">
             <div class="row text-center pad-5-60">
 
-                <a class="btn btn-warning pull-right text-danger" href="/"><span class="glyphicon glyphicon-remove" /> </a>
+                <a class="btn btn-warning pull-right text-danger" href="/dr/"><span class="glyphicon glyphicon-remove" /> </a>
             </div>
             <div id="tableBtns" class="row">
 
@@ -60,7 +63,9 @@
                         <th>FIRST NAME</th>
                         <th>LAST NAME</th>
                         <th>ID NUMBER</th>
-                        <th>CREATE DATE</th>
+                        <th>D.O.B</th>
+                        <th>GENDER</th>
+                        <th>PHONE #</th>
                         <th>KINSMAN</th>
                         <th>VIEW</th>
                         <th>EDIT</th>
@@ -72,11 +77,13 @@
                                 <td>${patient.firstName}</td>
                                 <td>${patient.lastName}</td>
                                 <td>${patient.idNumber}</td>
-                                <td><fmt:formatDate value="${patient.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
-                                <td> <a href="/kinsman/view/${patient.kinsman.id}">show</a></td>
-                                <td><a class="" href="/patient/view/${patient.id}" ><span class="glyphicon glyphicon-play-circle" /> </a> </td>
-                                <td><a class="" href="/patient/edit/${patient.id}" ><span class="glyphicon glyphicon-pencil" /> </a> </td>
-                                <td><a class="" href="/patient/delete/${patient.id}" ><span class="glyphicon glyphicon-remove-circle" /> </a></td>
+                                <td>${patient.dob}</td>
+                                <td>${patient.gender}</td>
+                                <td>${patient.phone}</td>
+                                <td> <a href="/dr/kinsman/view/${patient.kinsman.id}">show</a></td>
+                                <td><a class="" href="/dr/patient/view/${patient.id}" ><span class="glyphicon glyphicon-play-circle" /> </a> </td>
+                                <td><a class="" href="/dr/patient/edit/${patient.id}" ><span class="glyphicon glyphicon-pencil" /> </a> </td>
+                                <td><a class="" href="/dr/patient/delete/${patient.id}" ><span class="glyphicon glyphicon-remove-circle" /> </a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -90,31 +97,53 @@
 
 </section>
 
-<script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../webjars/popper.js/1.14.4/popper.min.js"></script>
-<script type="text/javascript" src="../webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script type="text/javascript" src="../js/datatables.min.js"></script>
-<%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/js/mdb.min.js"></script>--%>
-<%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>--%>
-<script type="text/javascript" src="../js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 <script>
-   /*$("#users_table").DataTable( {
-       dom: 'Bfrtip',
-       buttons: [
-           'copy', 'excel', 'pdf'
-       ]
-   } );*/
+    //   $(document).ready(function() {
+    $('#users_table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend:'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4,5 ]
+                }
+            },
+            {
+                extend:'excelHtml5',
+                exportOptions: {
+                    columns: [ 0, 1 ,2,3,4,5]
+                }
+            },
+            {
+                extend:'csvHtml5',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4,5 ]
+                }
+            },
+            {
+                extend:'pdfHtml5',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4,5 ]
+                }
+            }
+        ],
 
-   var table = $('#users_table').DataTable( {
-       buttons: [
-           'copy', 'excel', 'pdf'
-       ]
-   } );
+    } );
 
-   table.buttons().container()
-       .appendTo( $('#tableBtns', table.table().container() ) );
+
+
 </script>
-<%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/js/mdb.min.js"></script>--%>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>

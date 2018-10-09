@@ -1,5 +1,7 @@
 package com.mana.dr.entities;
 
+import com.mana.dr.audit.Auditable;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -10,13 +12,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@ToString
 @Table(name = "user")
-public class User {
+public class User extends Auditable<String> {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name", nullable = false, length = 30)
@@ -24,19 +26,6 @@ public class User {
 
     @Column(name = "last_name", nullable = false, length = 30)
     private String lastName;
-
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createDate;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date modifyDate;
-
-    @Column(name = "creator", nullable = false, updatable = false)
-    private String creator;
 
     @Column(name = "user_name", nullable = false, length = 30)
     private String userName;
@@ -69,30 +58,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getModifyDate() {
-        return modifyDate;
-    }
-
-    public void setModifyDate(Date modifyDate) {
-        this.modifyDate = modifyDate;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
     }
 
     public String getUserName() {

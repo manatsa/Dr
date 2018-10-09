@@ -6,14 +6,14 @@
 <head>
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
     <title class="text-danger">504</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" media="screen" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" href="../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/popper.js/1.14.4/popper.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <section class="container">
@@ -25,7 +25,7 @@
 
 
     <div class="row pad-5-5">
-        <img src="/images/404.gif" alt="The resource you are looking for was not found!"  class="img-responsive img-rounded col-md-5" />
+        <img src="images/404.gif" alt="The resource you are looking for was not found!"  class="img-responsive img-rounded col-md-5" />
         <button data-toggle="collapse" class="btn btn-danger col-md-4" data-target="#error">Click This Error To see More <span class="caret" /></button>
     </div>
 

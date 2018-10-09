@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../../favicon.ico" width="30px" height="30px" /></a>
+                <a class="navbar-brand" href="#"><img src="../resources/favicon.ico" width="30px" height="30px" /></a>
                 <a class="navbar-brand" href="#">DR DOCTOR</a>
             </div>
 
@@ -23,8 +23,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="nav-item-heading bg-success navbar-text" ><span class="glyphicon glyphicon-king"></span> Patient</li>
-                            <li><a href="/patient/new.html">New Patient</a></li>
-                            <li><a href="/patient/">Show All Patients</a></li>
+                            <li><a href="/dr/patient/new.html">New Patient</a></li>
+                            <li><a href="/dr/patient/">Show All Patients</a></li>
 
                         </ul>
                     </li>
@@ -36,8 +36,6 @@
                             <li class="navbar-text"><span class="glyphicon glyphicon-paperclip"></span> New Receipt </li>
                             <li><a href="#">New Receipt</a></li>
                             <li><a href="#">View Receipts</a></li>
-                            <li><a href="#">Edit Receipt</a></li>
-                            <li><a href="#">Delete Receipt</a></li>
                             <li><a href="#">Manual Receipt</a></li>
                             <li class="nav-divider"></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon-book "></span> Accounting</li>
@@ -53,19 +51,20 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="navbar-text"><span class="glyphicon glyphicon-plus-sign"></span> Hospital</li>
-                            <li><a href="/hospital/new.html">New Hospital</a></li>
-                            <li><a href="/hospital/">View Hospitals</a></li>
-                            <li class="navbar-text"><span class="glyphicon glyphicon-adjust"></span> Drugs</li>
-                            <li><a href="#">New Drug</a></li>
-                            <li><a href="#">View Drugs</a></li>
-                            <li><a href="#">Edit Drug</a></li>
-                            <li><a href="#">Delete Drug</a></li>
+                            <li><a href="/dr/hospital/new.html">New Hospital</a></li>
+                            <li><a href="/dr/hospital/">Show All Hospitals</a></li>
+                            <li class="navbar-text"><span class="glyphicon glyphicon-adjust"></span> Medicine</li>
+                            <li><a href="#">New Medicine</a></li>
+                            <li><a href="#">Show All Medicine</a></li>
                             <li class="nav-divider"></li>
-                            <li class="navbar-text"><span class="glyphicon glyphicon-leaf"></span> Herbs</li>
-                            <li><a href="#">New Herb</a></li>
-                            <li><a href="#">View Herbs</a></li>
-                            <li><a href="#">Edit Herb</a></li>
-                            <li><a href="#">Delete Herb</a></li>
+                            <li class="navbar-text"><span class="glyphicon glyphicon-adjust"></span> Equipment</li>
+                            <li><a href="#">New Equipment</a></li>
+                            <li><a href="#">Show All Equipment</a></li>
+                            <li class="nav-divider"></li>
+                            <li class="navbar-text"><span class="glyphicon glyphicon glyphicon-cloud-download"></span> Supplier</li>
+                            <li><a href="#">New Supplier</a></li>
+                            <li><a href="#">Show All Suppliers</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -76,21 +75,16 @@
                             <li class="nav-divider"></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon-tint"></span> Treatment</li>
                             <li><a href="#">New Treatment</a></li>
-                            <li><a href="#">View Treatments</a></li>
-                            <li><a href="#">Edit Treatment</a></li>
-                            <li><a href="#">Delete Treatment</a></li>
+                            <li><a href="#">Show All Treatments</a></li>
                             <li class="nav-divider"></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon-info-sign"></span> Tests</li>
                             <li><a href="#">New Test</a></li>
-                            <li><a href="#">View Tests</a></li>
-                            <li><a href="#">Edit Test</a></li>
-                            <li><a href="#">Delete Test</a></li>
+                            <li><a href="#">Show All Tests</a></li>
                             <li class="nav-divider"></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon-circle-arrow-right"></span> Referrals</li>
                             <li><a href="#">New Referral</a></li>
-                            <li><a href="#">View Referrals</a></li>
-                            <li><a href="#">Edit Referral</a></li>
-                            <li><a href="#">Delete Referral</a></li>
+                            <li><a href="#">Show All Referrals</a></li>
+
                         </ul>
                     </li>
                     <%! String acount="Account"; long id=-1; boolean reports=false; String admin=""; %>
@@ -111,10 +105,11 @@
                             <span class="glyphicon glyphicon-user"></span> <%=acount%><span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/user/reset/<%=id%>">Reset Password</a></li>
-                            <li><a href="/user/new.html">Create Another User</a></li>
-                            <li><a href="/user/">Show All Users</a></li>
-                            <li><a href="/user/view/<%=id%>">View Own Profile</a></li>
+
+                            <li><a href="/dr/user/new.html">Create Another User</a></li>
+                            <li><a href="/dr/user/">Show All Users</a></li>
+                            <li><a href="/dr/user/reset/<%=id%>">Reset Password</a></li>
+                            <li><a href="/dr/user/view/<%=id%>">View Own Profile</a></li>
 
 
                         </ul>

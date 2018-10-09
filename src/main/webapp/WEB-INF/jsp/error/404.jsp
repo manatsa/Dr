@@ -6,14 +6,14 @@
 <head>
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
     <title class="text-danger">404</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" media="screen" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" href="../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/popper.js/1.14.4/popper.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <section class="container">

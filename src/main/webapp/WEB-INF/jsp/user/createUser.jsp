@@ -6,16 +6,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New User</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 
 <body>
     <jsp:include page="../includes/header.jsp" />
@@ -29,7 +30,7 @@
             </div>
             <div class="panel-body">
 
-                <form  method="post" action="/user/create.html" >
+                <form  method="post" action="/dr/user/create.html" >
                     <legend class="text-center form-control-static">Enter New User Details</legend>
                     <div class="form-group">
                         <input type="date" id="createDate" name="createDate" class="hidden" />
@@ -68,7 +69,7 @@
                     <hr/>
                     <div class="row">
                         <div style="padding: 10px 50px; margin: 20px;">
-                            <a  role="button" class="btn btn-warning pull-left" href="/">Cancel</a>
+                            <a  role="button" class="btn btn-warning pull-left" onclick="window.history.back()">Cancel</a>
                             <button type="submit" role="button" class="btn btn-primary pull-right">Save</button>
                         </div>
                     </div>

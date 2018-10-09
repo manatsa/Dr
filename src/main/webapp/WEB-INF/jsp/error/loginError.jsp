@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
-<%@taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,9 +13,7 @@
 </head>
 <body>
 <section class="container">
-    <f:view>
-        <h:outputLabel value="Hello JSF" styleClass="text-danger"></h:outputLabel>
-    </f:view>
+    <h1>There was an error during login procedure!</h1>
 </section>
 </body>
 </html>

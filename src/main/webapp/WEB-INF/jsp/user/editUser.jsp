@@ -7,16 +7,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit User</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 
 <body>
 <jsp:include page="../includes/header.jsp" />
@@ -28,24 +29,15 @@
         </div>
         <div class="panel-body">
 
-            <form  method="post" action="/user/edit.html" >
+            <form  method="post" action="/dr/user/edit.html" >
                 <legend class="text-center form-control-static">Enter New User Details</legend>
-                <%--<div class="form-group">--%>
-                    <%--<input type="date" id="createDate" name="createDate" value="${user.createDate}" class="hidden" />--%>
-                <%--</div>--%>
-                <%--<div class="form-group">--%>
-                    <%--<input type="date" id="modifyDate" name="createDate" value="${user.modifyDate}" class="hidden" />--%>
-                <%--</div>--%>
                 <div class="form-group">
-
                     <input type="password" id="password" name="password" class="hidden" value="${user.password}"/>
                 </div>
                 <div class="form-group">
                     <input id="id" name="id" class="hidden" value="${user.id}" />
                 </div>
-                <div class="form-group">
-                    <input id="creator" name="creator" class="hidden" value="${user.creator}"/>
-                </div>
+
                 <fieldset class="form-group form-row">
                     <label class="control-label col-md-4" for="firstName">First Name :</label>
                     <input id="firstName" name="firstName" value="${user.firstName}" class="form-control col-md-8" required="true" />
@@ -73,9 +65,7 @@
                         <a  role="button" class="btn btn-warning pull-left" href="/user/">Cancel</a>
                         <button type="submit" role="button" class="btn btn-primary pull-right">Save</button>
                     </div>
-
                 </div>
-
             </form>
         </div>
     </div>

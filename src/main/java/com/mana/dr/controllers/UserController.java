@@ -55,7 +55,6 @@ public class UserController {
             user.setLastName(lastName);
             user.setFirstName(firstName);
             user.setRole(roleName);
-            user.setCreator("system");
             userService.saveUser(user);
 
             List<User> users=userService.getAllUsers();
@@ -68,8 +67,7 @@ public class UserController {
     @RequestMapping(value = "/login")
     public String loginRequest(Model model)
     {
-        model.addAttribute("done",true);
-        model.addAttribute("logout",false);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
         model.addAttribute("message","You are now successfully logged in!");
         return "user/login";
     }
@@ -81,8 +79,7 @@ public class UserController {
         httpSession.setAttribute("user",null);
         httpSession.removeAttribute("user");
         httpSession.invalidate();
-        model.addAttribute("done",true);
-        model.addAttribute("logout",true);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
         model.addAttribute("message","Please not that you are now logged out!");
         return "redirect:/";
     }
@@ -126,7 +123,8 @@ public class UserController {
 
         List<User> users=userService.getAllUsers();
         model.addAttribute("users",users);
-        model.addAttribute("done",true);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
+        model.addAttribute("message","User was edited successfully!!");
         return "user/viewUsers";
     }
 
@@ -152,8 +150,8 @@ public class UserController {
 
         List<User> users=userService.getAllUsers();
         model.addAttribute("users",users);
-        model.addAttribute("message","Password reset was successful");
-        model.addAttribute("done",true);
+        model.addAttribute("message","Password reset was successful!");
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center");
         return "user/viewUsers";
     }
 

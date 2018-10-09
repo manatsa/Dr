@@ -4,16 +4,17 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New Hospital</title>
-    <link rel="stylesheet" media="screen" href="../webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="../css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="../webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="../webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 </head>
 <body>
 <section class="container">
@@ -24,7 +25,7 @@
         </div>
         <div class="panel-body">
 
-            <form action="/hospital/created" class="form-horizontal" method="post">
+            <form action="/dr/hospital/created" class="form-horizontal" method="post">
                 <hr/>
                 <legend class="text-uppercase text-danger text-center">Please fill in the form below <a class="btn btn-warning pull-right pad-5-5" onclick="window.history.back()">&nbsp; &times  &nbsp;</a></legend>
 
@@ -69,7 +70,7 @@
 
                 <div class="row">
                     <div style="padding: 10px 50px; margin: 10px;">
-                        <a  role="button" class="btn btn-warning pull-left" href="/">Cancel</a>
+                        <a  role="button" class="btn btn-warning pull-left" onclick="window.history.back()">Cancel</a>
                         <button type="submit" role="button" class="btn btn-primary pull-right">Save</button>
                     </div>
                 </div>

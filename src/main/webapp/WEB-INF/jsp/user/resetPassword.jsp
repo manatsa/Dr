@@ -6,18 +6,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New User</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/css/mdb.min.css" />
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 </head>
 <body>
 
@@ -29,10 +28,9 @@
         </div>
         <div class="panel-body">
 
-            <form action="/user/doreset/${user.id}" method="post">
+            <form action="<%=request.getContextPath()%>/user/doreset/${user.id}" method="post">
                 <legend class="text-uppercase text-center text danger">New Password For   USER ${user.firstName} ${user.lastName} <a onclick="window.history.back()" class="btn btn-danger pull-right pad-5-5"> &nbsp; &times  &nbsp;</a></legend>
                 <fieldset class=" md-form form-group">
-                    <%--<label class="control-label col-md-3 text-danger" for="password">New Password</label>--%>
                     <input type="text" class="form-control col-md-9" name="password" id="password" placeholder="Enter the new password here"/>
                 </fieldset>
 

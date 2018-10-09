@@ -1,22 +1,16 @@
 package com.mana.dr.entities;
 
-import lombok.Data;
+import com.mana.dr.audit.Auditable;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
-@Data
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-public class Patient {
+public class Patient extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,33 +22,106 @@ public class Patient {
     @NotNull
     private String lastName;
 
+    @Column(nullable = false)
+    private String idNumber;
+
+    @Column(nullable = false)
+    private Date dob;
+
+    @Column(nullable = false)
+    private String gender;
+
     @NotNull
     private String address;
 
     @NotNull
     private String phone;
 
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private Date createDate;
-
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @Column(nullable = false)
-    private Date modifyDate;
-
     @Column
     private String email;
-
-    @Column(nullable = false)
-    private String idNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
     @NotNull
     Kinsman kinsman;
 
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Kinsman getKinsman() {
+        return kinsman;
+    }
+
+    public void setKinsman(Kinsman kinsman) {
+        this.kinsman = kinsman;
+    }
 }

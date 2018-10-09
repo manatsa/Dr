@@ -33,7 +33,7 @@ public class PatientController {
     }
 
     @RequestMapping("/created")
-    public String patientCreated(Patient patient, HttpServletRequest request)
+    public String patientCreated(Patient patient, HttpServletRequest request,Model model)
     {
         System.err.println(patient.toString()+" \n ++++++++++++++++++++++++++");
         Kinsman kinsman=new Kinsman();
@@ -46,8 +46,9 @@ public class PatientController {
          patient.setKinsman(kinsman);
 
         patientService.savePatient(patient);
-
-        return "redirect:/";
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center ");
+        model.addAttribute("message","Patient was saved successfully!!");
+        return "patient/ViewPatients";
     }
 
     @RequestMapping({"/","/list"})
@@ -78,7 +79,10 @@ public class PatientController {
         Kinsman kinsman=kinsmanService.getKinsmanById(kid);
         patient.setKinsman(kinsman);
         patientService.savePatient(patient);
-        model.addAttribute("done",true);
-        return "/";
+        List<Patient> patients=patientService.getAllPatients();
+        model.addAttribute("patients",patients);
+        model.addAttribute("show"," alert alert-dismissable alert-success text-center  ");
+        model.addAttribute("message","Patient was edited successfully!!");
+        return "patient/viewPatients";
     }
 }

@@ -9,14 +9,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=devicewidth, initial-scale=1">
     <title>New User</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" media="screen" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/popper.js/1.14.4/popper.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <section class="container">
@@ -36,13 +36,13 @@
     <h1>Error Details Below  ${status}</h1>
     <div class="row pad-10-60">
         <div class="col-md-4 ">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+            <img src="images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
         </div>
         <div class="col-md-4">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+            <img src="images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
         </div>
         <div class="col-md-4">
-            <img src="../images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
+            <img src="images/tenor.gif" alt="error.gif" width="300px" height="200px" class="img-responsive img-rounded">
         </div>
 
     </div>

@@ -9,17 +9,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicewidth, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HOSPITAL DETAILS</title>
-    <link rel="stylesheet" media="screen" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" media="screen" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" href="../../../favicon.ico">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    <script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/popper.js/1.14.4/popper.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
 
 <body>
 <jsp:include page="../includes/header.jsp" />
@@ -32,7 +32,7 @@
         </div>
         <div class="panel-body">
             <div class="row text-center pad-10-60">
-                <a class="btn btn-warning pull-right text-danger" href="/hospital/"><span class="glyphicon glyphicon-remove" /> </a>
+                <a class="btn btn-warning pull-right text-danger" onclick="window.history.back()"><span class="glyphicon glyphicon-remove" /> </a>
             </div>
             <table class="table table-responsive table-striped">
                 <thead>
@@ -49,21 +49,21 @@
                         <td>${hospital.name}</td>
                     </tr>
 
-                    <%--<tr>--%>
-                        <%--<td>PHONE NUMBER :</td>--%>
-                        <%--<td>${hospital.phone}</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td>CREATED BY:</td>--%>
-                        <%--<td>${patient.creator}</td>--%>
-                    <%--</tr>--%>
-                    <tr>
                             <td>CREATE DATE :</td>
-                        <td><fmt:formatDate value="${hospital.createDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
+                        <td><fmt:formatDate value="${hospital.createdDate}" pattern="dd-MM-yyyy HH:mm:ss"/> </td>
                     </tr>
                     <tr>
+                        <td>CREATED BY:</td>
+                        <td>${hospital.createdBy}</td>
+                    </tr>
+                    <tr>
+                    <tr>
                         <td>MODIFY DATE :</td>
-                        <td><fmt:formatDate value="${hospital.modifyDate}" pattern="dd-MM-yyyy HH:mm:ss"/></td>
+                        <td><fmt:formatDate value="${hospital.lastModifiedDate}" pattern="dd-MM-yyyy HH:mm:ss"/></td>
+                    </tr>
+                    <tr>
+                        <td>LAST MODIFIED BY:</td>
+                        <td>${hospital.lastModifiedBy}</td>
                     </tr>
                     <tr>
                         <td>MOBILE NUMBER:</td>
@@ -72,6 +72,10 @@
                     <tr>
                         <td>EMAIL ADDRESS:</td>
                         <td>${hospital.address}</td>
+                    </tr>
+                    <tr>
+                    <td>CONTACT PERSON:</td>
+                    <td>${hospital.contact}</td>
                     </tr>
 
                 </tbody>
