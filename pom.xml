@@ -5,7 +5,7 @@
 
 	<groupId>com.mana</groupId>
 	<artifactId>DR</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<packaging>war</packaging>
 
 	<name>DR</name>
