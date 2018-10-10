@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="stylesheet" media="screen" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="shortcut icon" href="../resources/favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="stylesheet" media="screen" href="css/red_navs.css">
 
@@ -21,11 +21,9 @@
 
 </head>
 <body>
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="/images/loader.gif" alt="Loading" class="img-responsive"/>
-</div>
+
 <jsp:include page="includes/header.jsp" />
-<
+
 <div id="logoutModal" class="modal fade" role="dialog">
 
     <div class="modal-dialog">
@@ -113,56 +111,83 @@
             <div class="item">
                 <img src="images/doc2.jpg" alt="doc 2" class="img-responsive img-circle" >
                 <div class="carousel-caption">
-                    <h3>Chicago</h3>
-                    <p>Thank you, Chicago!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">The Hospital Administration Module</h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                        The Hospital Admin Module includes Medicine(drugs or herbs) management. Capture into the system, viewing,
+                        as well as editing. There is also supplier management and equipment management. The actual hospitals are listed
+                        also in this module to help with referrals as well as tests.
+                    </p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="images/doc3.jpg" alt="doc 3" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">Patient Management Module</h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                        The Patient Admin Module delas with both the patient and the next of kin for the patient. Capture into the system, viewing,
+                        as well as editing. Important patient information is captured into the system for future reference as well as classification of patients.
+                    </p>
                 </div>
             </div>
 
             <div class="item active">
                 <img src="images/doc4.png" alt="doc 4" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>LA is always so much fun!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">Accounting and Receipting Module </h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                       This is the module that has to do with the finances. Electronic receipts are captured into the system as well as
+                        manual receipts. These captured receipts are very accessible but can only be edited by special rights.
+                    </p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="images/doc5.png" alt="doc 5" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>Chicago</h3>
-                    <p>Thank you, Chicago!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">The System Administration Module</h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                        Users of the system need constant assistance in cases like when they need to be upgraded or degraded to new ROLES.
+                        The administration module also give system administrator ways to reset password in case the need arises.
+                    </p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="images/doc6.jpg" alt="doc 6" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">The Treatment Module</h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                        One of the most important modules that keeps track of all treatments on every patient in the system. It takes note
+                        of the prescriptions made to the patient, any tests done and the details surrounding the tests, any referrals done and the
+                        details of the referrals.
+                    </p>
                 </div>
             </div>
 
             <div class="item active">
                 <img src="images/doc7.png" alt="doc 7" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>LA is always so much fun!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">The Reporting Module</h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                        This module cross-cuts through all othe modules and produces reports based on selected criteria, which may include,
+                        gender, age, dates, types of objects, events, actions or people. While crude reports are spread across all other modules,
+                        this is a hub for consolidated reports created using a specialised reports engine.
+                    </p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="images/doc8.png" alt="doc 8" class="img-responsive img-circle">
                 <div class="carousel-caption">
-                    <h3>Chicago</h3>
-                    <p>Thank you, Chicago!</p>
+                    <h3 class="text-danger col-md-7 text-center pull-right">About </h3>
+                    <p class="text-danger col-md-7 text-center pull-right">
+                       Dr DOCTOR version 1.0.1.beta was developed by Manatsa Chinyeruse<br/>
+                        <a href="mailto:manatsachinyeruse@gmail.com">Email : Manatsa Chinyeruse</a>. <br/>
+                        Mobile Number: 0776298063 or 0733680483.<br/><br/>
+                       Address : 7571 Lemon drive, Zimre Park, Ruwa
+
+                    </p>
                 </div>
             </div>
 

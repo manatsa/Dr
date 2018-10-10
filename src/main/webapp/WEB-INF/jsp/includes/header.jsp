@@ -1,7 +1,7 @@
 <%@ page import="com.mana.dr.entities.User" %>
 
 
-<nav class="navbar  navbar-inverse navbar-primary ">
+<nav class="navbar  navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dr-toggle-nav" aria-expanded="false">
@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../resources/favicon.ico" width="30px" height="30px" /></a>
+                <a class="navbar-brand" href="#"><img src="favicon.ico" width="30px" height="30px" /></a>
                 <a class="navbar-brand" href="#">DR DOCTOR</a>
             </div>
 
@@ -22,7 +22,7 @@
                             <span class="glyphicon glyphicon-user"></span>Patient<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item-heading bg-success navbar-text" ><span class="glyphicon glyphicon-king"></span> Patient</li>
+                            <li class="navbar-text" ><span class="glyphicon glyphicon-king"></span> Patient</li>
                             <li><a href="/dr/patient/new.html">New Patient</a></li>
                             <li><a href="/dr/patient/">Show All Patients</a></li>
 
@@ -62,8 +62,8 @@
                             <li><a href="#">Show All Equipment</a></li>
                             <li class="nav-divider"></li>
                             <li class="navbar-text"><span class="glyphicon glyphicon glyphicon-cloud-download"></span> Supplier</li>
-                            <li><a href="#">New Supplier</a></li>
-                            <li><a href="#">Show All Suppliers</a></li>
+                            <li><a href="/dr/supplier/new.html">New Supplier</a></li>
+                            <li><a href="/dr/supplier/">Show All Suppliers</a></li>
 
                         </ul>
                     </li>

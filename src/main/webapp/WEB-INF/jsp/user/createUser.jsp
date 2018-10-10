@@ -30,11 +30,9 @@
             </div>
             <div class="panel-body">
 
-                <form  method="post" action="/dr/user/create.html" >
+                <form class="form-horizontal"  method="post" action="/dr/user/create.html" >
                     <legend class="text-center form-control-static">Enter New User Details</legend>
-                    <div class="form-group">
-                        <input type="date" id="createDate" name="createDate" class="hidden" />
-                    </div>
+
                     <div class="form-group">
                         <input id="id" name="id" class="hidden" />
                     </div>
@@ -43,28 +41,38 @@
                     </div>
                     <fieldset class="form-group form-row">
                         <label class="control-label col-md-4" for="firstName">First Name :</label>
-                        <input id="firstName" name="firstName" class="form-control col-md-8" required="true" />
+                        <div class="col-md-8">
+                            <input id="firstName" name="firstName" class="form-control" required="true" />
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="lastName">Last Name :</label>
-                        <input id="lastName" name="lastName" class="form-control col-md-8" required="true"/>
+                        <div class="col-md-8">
+                            <input id="lastName" name="lastName" class="form-control" required="true"/>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="userName">Username :</label>
-                        <input type="text" id="userName" name="userName" class="form-control col-md-8" required="true"/>
+                        <div class="col-md-8">
+                            <input type="text" id="userName" name="userName" class="form-control" required="true"/>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="password">Password :</label>
-                        <input type="password" id="password" name="password" class="form-control col-md-8" required="true"/>
+                        <div class="col-md-8">
+                            <input type="password" id="password" name="password" class="form-control" required="true"/>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="control-label col-md-4 pull-left" for="role">User Role :</label>
-                        <select class="form-control col-lg-8" name="role" id="role" required="true">
-                            <c:forEach items="${roles}" var="role">
-                                <option class="text-uppercase">${role.role}</option>
-                            </c:forEach>
+                        <div class="col-md-8">
+                            <select class="form-control" name="role" id="role" required="true">
+                                <c:forEach items="${roles}" var="role">
+                                    <option class="text-uppercase">${role.role}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
 
-                        </select>
                     </fieldset>
                     <hr/>
                     <div class="row">
