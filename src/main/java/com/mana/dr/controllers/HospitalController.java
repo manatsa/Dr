@@ -1,6 +1,7 @@
 package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Hospital;
+import com.mana.dr.interfaces.HospitalInterface;
 import com.mana.dr.services.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import java.util.List;
 public class HospitalController {
 
     @Autowired
-    HospitalService hospitalService;
+    HospitalInterface hospitalService;
 
     @RequestMapping("/new.html")
     public String createHospital(Model model){

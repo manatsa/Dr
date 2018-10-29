@@ -2,6 +2,8 @@ package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Kinsman;
 import com.mana.dr.entities.Patient;
+import com.mana.dr.interfaces.KinsmanInterface;
+import com.mana.dr.interfaces.PatientInterface;
 import com.mana.dr.services.KinsmanService;
 import com.mana.dr.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,10 @@ public class PatientController {
 
 
     @Autowired
-    PatientService patientService;
+    PatientInterface patientService;
 
     @Autowired
-    KinsmanService kinsmanService;
+    KinsmanInterface kinsmanService;
 
 
     @RequestMapping("/new.html")

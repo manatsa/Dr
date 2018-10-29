@@ -1,6 +1,7 @@
 package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Supplier;
+import com.mana.dr.interfaces.SupplierInterface;
 import com.mana.dr.services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import java.util.List;
 public class SupplierController {
 
     @Autowired
-    SupplierService supplierService;
+    SupplierInterface supplierService;
 
     @RequestMapping("/new.html")
     public String create(Model model)

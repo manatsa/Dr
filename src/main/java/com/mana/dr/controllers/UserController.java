@@ -2,6 +2,7 @@ package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Roles;
 import com.mana.dr.entities.User;
+import com.mana.dr.interfaces.RoleInterface;
 import com.mana.dr.services.RoleService;
 import com.mana.dr.interfaces.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    RoleService roleService;
+    RoleInterface roleService;
 
     @PersistenceContext
     EntityManager em;

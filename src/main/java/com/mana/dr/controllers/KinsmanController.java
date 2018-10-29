@@ -1,6 +1,7 @@
 package com.mana.dr.controllers;
 
 import com.mana.dr.entities.Kinsman;
+import com.mana.dr.interfaces.KinsmanInterface;
 import com.mana.dr.services.KinsmanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class KinsmanController {
 
     @Autowired
-    KinsmanService kinsmanService;
+    KinsmanInterface kinsmanService;
 
     @RequestMapping("/kinsman/view/{id}")
     public String showKinsman(Model model, @PathVariable Long id){

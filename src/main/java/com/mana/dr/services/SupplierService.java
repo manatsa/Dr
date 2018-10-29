@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Service
-@RequestMapping("/supply")
 public class SupplierService implements SupplierInterface {
 
     @Autowired
     SupplierRepository supplierRepository;
 
     @Override
-    @GetMapping("/list/")
     public List<Supplier> getAllSuppliers() {
         return supplierRepository.findAll();
     }

@@ -4,9 +4,12 @@ import com.mana.dr.audit.Auditable;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @ToString
+@Table(name = "supplier")
 public class Supplier extends Auditable<String>{
 
     @Id
@@ -31,9 +34,19 @@ public class Supplier extends Auditable<String>{
     @Column(nullable = false, length = 60)
     private String contact;
 
+    @ManyToMany(/*mappedBy = "supplier"*/)
+    private Set<Medicine> medicines = new HashSet<>();
 
     public long getId() {
         return id;
+    }
+
+    public Set<Medicine> getMedicines() {
+        return medicines;
+    }
+
+    public void setMedicines(Set<Medicine> medicines) {
+        this.medicines = medicines;
     }
 
     public void setId(long id) {
